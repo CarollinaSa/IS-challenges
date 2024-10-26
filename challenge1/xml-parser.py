@@ -1,26 +1,25 @@
 import xml.dom.minidom as minidom
 
-# Função para converter XML para texto sem tags
-def xml_para_texto_simples(file_path):
+def xml_to_text(file_path):
     try:
         dom_tree = minidom.parse(file_path)
         root = dom_tree.documentElement
 
-        def extrair_texto(node):
-            texto = ""
+        def extract_text(node):
+            text = ""
             if node.nodeType == node.ELEMENT_NODE:
                 for child in node.childNodes:
                     if child.nodeType == child.TEXT_NODE:
-                        texto += child.nodeValue.strip() + " "
+                        text += child.nodeValue.strip() + " "
                     else:
-                        texto += extrair_texto(child)
-            return texto
+                        text += extract_text(child)
+            return text
 
-        return extrair_texto(root).strip()
+        return extract_text(root).strip()
 
     except Exception as e:
-        return f"Erro ao processar o ficheiro XML: {e}"
+        return f"Error processing XML file: {e}"
 
 file_path = "321gone.xml"
-resultado = xml_para_texto_simples(file_path)
-print(resultado)
+result = xml_to_text(file_path)
+print(result)
