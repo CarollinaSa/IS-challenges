@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="WineData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Wine" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="fixed_acidity" type="xs:decimal"/>
+                            <xs:element name="volatile_acidity" type="xs:decimal"/>
+                            <xs:element name="citric_acid" type="xs:decimal"/>
+                            <xs:element name="residual_sugar" type="xs:decimal"/>
+                            <xs:element name="chlorides" type="xs:decimal"/>
+                            <xs:element name="free_sulfur_dioxide" type="xs:decimal"/>
+                            <xs:element name="total_sulfur_dioxide" type="xs:int"/>
+                            <xs:element name="density" type="xs:decimal"/>
+                            <xs:element name="pH" type="xs:decimal"/>
+                            <xs:element name="sulphates" type="xs:decimal"/>
+                            <xs:element name="alcohol" type="xs:decimal"/>
+                            <xs:element name="quality" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
