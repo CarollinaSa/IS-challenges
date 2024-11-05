@@ -1,6 +1,5 @@
 import csv
 import xml.etree.ElementTree as ET
-
 def csv_para_xml(csv_file, xml_file):
     root = ET.Element("WineData")
 
@@ -33,8 +32,6 @@ def csv_para_xml(csv_file, xml_file):
     tree = ET.ElementTree(root)
     with open(xml_file, "wb") as f:
         tree.write(f, encoding='utf-8', xml_declaration=True)
-
-
 
 csv_file = "winequality-red.csv"
 xml_file = "winequality-red.xml"
