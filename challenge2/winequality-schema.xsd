@@ -1,27 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="WineData">
-        <xs:complexType>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="WineData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Wine" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
             <xs:sequence>
-                <xs:element name="Wine" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="fixed_acidity" type="xs:decimal"/>
-                            <xs:element name="volatile_acidity" type="xs:decimal"/>
-                            <xs:element name="citric_acid" type="xs:decimal"/>
-                            <xs:element name="residual_sugar" type="xs:decimal"/>
-                            <xs:element name="chlorides" type="xs:decimal"/>
-                            <xs:element name="free_sulfur_dioxide" type="xs:decimal"/>
-                            <xs:element name="total_sulfur_dioxide" type="xs:int"/>
-                            <xs:element name="density" type="xs:decimal"/>
-                            <xs:element name="pH" type="xs:decimal"/>
-                            <xs:element name="sulphates" type="xs:decimal"/>
-                            <xs:element name="alcohol" type="xs:decimal"/>
-                            <xs:element name="quality" type="xs:int"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+              <xs:element type="xs:float" name="fixed_acidity"/>
+              <xs:element type="xs:float" name="volatile_acidity"/>
+              <xs:element type="xs:float" name="citric_acid"/>
+              <xs:element type="xs:float" name="residual_sugar"/>
+              <xs:element type="xs:float" name="chlorides"/>
+              <xs:element type="xs:float" name="free_sulfur_dioxide"/>
+              <xs:element type="xs:float" name="total_sulfur_dioxide"/>
+              <xs:element type="xs:float" name="density"/>
+              <xs:element type="xs:float" name="pH"/>
+              <xs:element type="xs:float" name="sulphates"/>
+              <xs:element type="xs:float" name="alcohol"/>
+              <xs:element type="xs:byte" name="quality"/>
             </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
