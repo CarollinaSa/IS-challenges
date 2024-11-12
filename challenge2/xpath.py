@@ -13,3 +13,9 @@ def apply_xslt(xml_file, xslt_file, output_file):
         f.write(etree.tostring(result_tree, pretty_print=True, encoding="UTF-8", xml_declaration=True))
 
     print(f"Output saved to {output_file}.")
+
+
+xml_file = "winequality-red.xml"
+xslt_file = "xquery.xslt"
+output_file = "output.xml"
+apply_xslt(xml_file, xslt_file, output_file)
