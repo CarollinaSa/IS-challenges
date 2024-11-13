@@ -12,5 +12,5 @@ def apply_xslt(input_xml, xslt_file, output_xml):
 
 input_xml = "winequality-red.xml"
 xslt_file = "filter_quality_5.xslt"
-output_xml = "subset_quality_5_xslt.xml"
+output_xml = "xpath-xquery.xml"
 apply_xslt(input_xml, xslt_file, output_xml)

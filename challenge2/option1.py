@@ -18,6 +18,6 @@ def create_xml_subset(input_xml, output_xml, quality_filter):
     print(f"Subset XML created at '{output_xml}' with quality {quality_filter}")
 
 input_xml = "winequality-red.xml"
-output_xml = "filter_quality_5.xml"
+output_xml = "option1.xml"
 create_xml_subset(input_xml, output_xml, quality_filter=5)
 

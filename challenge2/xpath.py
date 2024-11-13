@@ -1,21 +1,17 @@
 from lxml import etree
 
+def xpath(sub_xml_1, sub_xml_2):
+    tree = etree.parse("winequality-red.xml")
 
-def apply_xslt(xml_file, xslt_file, output_file):
-    xml_tree = etree.parse(xml_file)
-    xslt_tree = etree.parse(xslt_file)
+    good_quality = tree.xpath("Wine[quality='5']")
+    print("Quality is greater than 5:")
 
-    transform = etree.XSLT(xslt_tree)
+    good_quality_root = etree.Element("GoodQuality")
 
-    result_tree = transform(xml_tree)
+    for quality in good_quality:
+        good_quality_root.append(quality)
+        print(etree.tostring(quality, pretty_print=True).decode("utf-8"))
 
-    with open(output_file, "wb") as f:
-        f.write(etree.tostring(result_tree, pretty_print=True, encoding="UTF-8", xml_declaration=True))
-
-    print(f"Output saved to {output_file}.")
-
-
-xml_file = "winequality-red.xml"
-xslt_file = "xquery.xslt"
-output_file = "output.xml"
-apply_xslt(xml_file, xslt_file, output_file)
+    good_quality_tree = etree.ElementTree(good_quality_root)
+    with open(sub_xml_1, "wb") as f:
+        good_quality_tree.write(f, encoding="utf-8", xml_declaration=True)
