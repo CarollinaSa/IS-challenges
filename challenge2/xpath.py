@@ -1,6 +1,7 @@
 from lxml import etree
 
-def xpath(sub_xml_1, sub_xml_2):
+
+def xpath(sub_xml_1):
     tree = etree.parse("winequality-red.xml")
 
     good_quality = tree.xpath("Wine[quality='5']")

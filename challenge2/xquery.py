@@ -1,16 +1,15 @@
 from lxml import etree
 
-def apply_xslt(input_xml, xslt_file, output_xml):
-    xml_tree = etree.parse(input_xml)
+
+def apply_xslt(xml_file, xslt_file, output_file):
+    xml_tree = etree.parse(xml_file)
     xslt_tree = etree.parse(xslt_file)
+
     transform = etree.XSLT(xslt_tree)
 
-    new_tree = transform(xml_tree)
+    result_tree = transform(xml_tree)
 
-    new_tree.write(output_xml, pretty_print=True, encoding="utf-8", xml_declaration=True)
-    print(f"Transformed XML saved at '{output_xml}'")
+    with open(output_file, "wb") as f:
+        f.write(etree.tostring(result_tree, pretty_print=True, encoding="UTF-8", xml_declaration=True))
 
-input_xml = "winequality-red.xml"
-xslt_file = "filter_quality_5.xslt"
-output_xml = "xpath-xquery.xml"
-apply_xslt(input_xml, xslt_file, output_xml)
+    print(f"Transformation complete. Output saved to {output_file}.")

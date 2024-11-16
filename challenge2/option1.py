@@ -2,7 +2,6 @@ import xml.etree.ElementTree as ET
 
 
 def create_xml_subset(input_xml, output_xml, quality_filter):
-    # Load the original XML
     tree = ET.parse(input_xml)
     root = tree.getroot()
 
